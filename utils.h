@@ -67,7 +67,8 @@ void endDrawing();
 
 void closeWaitDialog();
 
-void errorDialog(int error);
+#define errorDialog(err) (ErrorDialog(err, __FILE__, __LINE__))
+void ErrorDialog(int error, const char * file, int line);
 void infoDialog(const char *msg, ...);
 
 int checkMemoryCardFreeSpace(const char *path, uint64_t size);
@@ -79,6 +80,8 @@ void powerUnlock();
 void setEnterButton(int circle);
 void readPad();
 int holdButtons(SceCtrlData *pad, uint32_t buttons, uint64_t time);
+uint32_t ButtonUserToKernel(uint32_t button);
+int IsButtonPressed(uint32_t button);
 
 int hasEndSlash(const char *path);
 int removeEndSlash(char *path);

@@ -26,6 +26,7 @@
 #include "utils.h"
 #include "sfo.h"
 #include "sha1.h"
+#include "browser.h"
 
 INCLUDE_EXTERN_RESOURCE(head_bin);
 
@@ -48,8 +49,159 @@ static int unloadScePaf() {
   return sceSysmoduleUnloadModuleInternalWithArg(SCE_SYSMODULE_INTERNAL_PAF, 0, NULL, &buf);
 }
 
+int patchRetailContents() {
+  int res;
+
+  SceIoStat stat;
+  memset(&stat, 0, sizeof(SceIoStat));
+  res = sceIoGetstat(PACKAGE_DIR "/sce_sys/retail/livearea", &stat);
+  if (res < 0)
+    return res;
+
+  res = sceIoRename(PACKAGE_DIR "/sce_sys/livearea", PACKAGE_DIR "/sce_sys/livearea_org");
+  if (res < 0)
+    return res;
+
+  res = sceIoRename(PACKAGE_DIR "/sce_sys/retail/livearea", PACKAGE_DIR "/sce_sys/livearea");
+  if (res < 0)
+    return res;
+
+  return 0;
+}
+
+int restoreRetailContents(char *titleid) {
+  int res;
+  char src_path[128], dst_path[128];
+
+  sprintf(src_path, "ux0:app/%s/sce_sys/livearea", titleid);
+  sprintf(dst_path, "ux0:app/%s/sce_sys/retail/livearea", titleid);
+  res = sceIoRename(src_path, dst_path);
+  if (res < 0)
+    return res;
+
+  sprintf(src_path, "ux0:app/%s/sce_sys/livearea_org", titleid);
+  sprintf(dst_path, "ux0:app/%s/sce_sys/livearea", titleid);
+  res = sceIoRename(src_path, dst_path);
+  if (res < 0)
+    return res;
+
+  return 0;
+}
+
+int promoteUpdate(const char *path, const char *titleid, const char *category, void *sfo_buffer, int sfo_size) {
+  int res;
+
+  // Update installation
+  if (strcmp(category, "gp") == 0) {
+    // Change category to 'gd'
+    setSfoString(sfo_buffer, "CATEGORY", "gd");
+    WriteFile(PACKAGE_DIR "/sce_sys/param.sfo", sfo_buffer, sfo_size);
+
+    // App path
+    char app_path[MAX_PATH_LENGTH];
+    snprintf(app_path, MAX_PATH_LENGTH, "ux0:app/%s", titleid);
+
+    /*
+      Without the following trick, the livearea won't be updated and the game will even crash
+    */
+
+    // Integrate patch to app
+    res = movePath(path, app_path, MOVE_INTEGRATE | MOVE_REPLACE, NULL);
+    if (res < 0)
+      return res;
+
+    // Move app to promotion directory
+    res = movePath(app_path, path, 0, NULL);
+    if (res < 0)
+      return res;
+  }
+
+  return 0;
+}
+
+int promoteApp_Update(const char *path) {
+  int res;
+
+  // Read param.sfo
+  void *sfo_buffer = NULL;
+  int sfo_size = allocateReadFile(PACKAGE_DIR "/sce_sys/param.sfo", &sfo_buffer);
+  if (sfo_size < 0)
+    return sfo_size;
+
+  // Get titleid
+  char titleid[12];
+  getSfoString(sfo_buffer, "TITLE_ID", titleid, sizeof(titleid));
+
+  // Get category
+  char category[4];
+  getSfoString(sfo_buffer, "CATEGORY", category, sizeof(category));
+
+  // Check update's conditions
+  if (!vitashell_config.package_install_type ||   // config
+      !checkAppExist(titleid)) {                  // check package exist
+    return -1;
+  }
+
+  // Promote update
+  promoteUpdate(path, titleid, category, sfo_buffer, sfo_size);
+
+  // Free sfo buffer
+  free(sfo_buffer);
+
+  // Patch to use retail contents so the game is not shown as test version
+  int patch_retail_contents = patchRetailContents();
+
+  loadScePaf();
+
+  res = sceSysmoduleLoadModuleInternal(SCE_SYSMODULE_INTERNAL_PROMOTER_UTIL);
+  if (res < 0)
+    return res;
+
+  res = scePromoterUtilityInit();
+  if (res < 0)
+    return res;
+
+  res = scePromoterUtilityPromotePkg(path, 0);
+  if (res < 0)
+    return res;
+
+  int state = 0;
+  do {
+    res = scePromoterUtilityGetState(&state);
+    if (res < 0)
+      return res;
+
+    sceKernelDelayThread(100 * 1000);
+  } while (state);
+
+  int result = 0;
+  res = scePromoterUtilityGetResult(&result);
+  if (res < 0)
+    return res;
+
+  res = scePromoterUtilityExit();
+  if (res < 0)
+    return res;
+
+  res = sceSysmoduleUnloadModuleInternal(SCE_SYSMODULE_INTERNAL_PROMOTER_UTIL);
+  if (res < 0)
+    return res;
+
+  // Restore
+  if (patch_retail_contents >= 0)
+    restoreRetailContents(titleid);
+
+  // Using the promoteUpdate trick, we get 0x80870005 as result, but it installed correctly though, so return ok
+  return result == 0x80870005 ? 0 : result;
+}
+
 int promoteApp(const char *path) {
   int res;
+
+  res = promoteApp_Update(path);
+  if (res == 0) {
+    return res;
+  }
 
   res = loadScePaf();
   if (res < 0)
@@ -351,7 +503,7 @@ int install_thread(SceSize args_size, InstallArguments *args) {
         }
 
         // Init again
-        initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, language_container[INSTALLING]);
+        initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, "%s (%d items left)", language_container[INSTALLING], install_list_length);
         setDialogStep(DIALOG_STEP_INSTALLING);
       }
     }
@@ -414,7 +566,7 @@ int install_thread(SceSize args_size, InstallArguments *args) {
       }
 
       // Init again
-      initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, language_container[INSTALLING]);
+      initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, "%s (%d items left)", language_container[INSTALLING], install_list_length);
       setDialogStep(DIALOG_STEP_INSTALLING);
     }
 

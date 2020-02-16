@@ -138,6 +138,7 @@ MenuEntry menu_adhoc_entries[] = {
 enum MenuMoreEntrys {
   MENU_MORE_ENTRY_COMPRESS,
   MENU_MORE_ENTRY_INSTALL_ALL,
+  MENU_MORE_ENTRY_INSTALL_MARKED,
   MENU_MORE_ENTRY_INSTALL_FOLDER,
   MENU_MORE_ENTRY_EXPORT_MEDIA,
   MENU_MORE_ENTRY_CALCULATE_SHA1,
@@ -146,9 +147,10 @@ enum MenuMoreEntrys {
 MenuEntry menu_more_entries[] = {
   { COMPRESS,       14, 0, CTX_INVISIBLE },
   { INSTALL_ALL,    15, 0, CTX_INVISIBLE },
-  { INSTALL_FOLDER, 16, 0, CTX_INVISIBLE },
-  { EXPORT_MEDIA,   17, 0, CTX_INVISIBLE },
-  { CALCULATE_SHA1, 18, 0, CTX_INVISIBLE },
+  { INSTALL_MARKED, 16, 0, CTX_INVISIBLE },
+  { INSTALL_FOLDER, 17, 0, CTX_INVISIBLE },
+  { EXPORT_MEDIA,   18, 0, CTX_INVISIBLE },
+  { CALCULATE_SHA1, 19, 0, CTX_INVISIBLE },
 };
 
 #define N_MENU_MORE_ENTRIES (sizeof(menu_more_entries) / sizeof(MenuEntry))
@@ -1212,6 +1214,39 @@ static int contextMenuMoreEnterCallback(int sel, void *context) {
 
       break;
     }
+
+    // QuyenNC add start
+    case MENU_MORE_ENTRY_INSTALL_MARKED:
+    {
+      FileListEntry *file_entry = fileListGetNthEntry(&file_list, base_pos + rel_pos);
+      if (file_entry) {
+        // Empty copy list at first
+        fileListEmpty(&install_list);
+
+        // Paths
+        if (fileListFindEntry(&mark_list, file_entry->name)) { // On marked entry
+          // Copy mark list to copy list
+          FileListEntry *mark_entry = mark_list.head;
+
+          int i;
+          for (i = 0; i < mark_list.length; i++) {
+            fileListAddEntry(&install_list, fileListCopyEntry(mark_entry), SORT_NONE);
+
+            // Next
+            mark_entry = mark_entry->next;
+          }
+        } else {
+          fileListAddEntry(&install_list, fileListCopyEntry(file_entry), SORT_NONE);
+        }
+
+        strcpy(install_list.path, file_list.path);
+
+        initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_YESNO, language_container[INSTALL_MARKED_QUESTION]);
+        setDialogStep(DIALOG_STEP_INSTALL_QUESTION);
+      }
+      break;
+    }
+    // QuyenNC add end
 
     case MENU_MORE_ENTRY_INSTALL_FOLDER:
     {

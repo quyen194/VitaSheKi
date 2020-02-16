@@ -25,6 +25,7 @@
 #define DIR_UP ".."
 
 extern FileList file_list, mark_list, copy_list, install_list;
+extern int install_list_length;
 
 extern char cur_file[MAX_PATH_LENGTH];
 extern char archive_copy_path[MAX_PATH_LENGTH];

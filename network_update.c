@@ -27,11 +27,6 @@
 #include "language.h"
 #include "utils.h"
 
-#define BASE_ADDRESS "https://raw.githubusercontent.com/TheOfficialFloW/VitaShell/master/release"
-#define VERSION_URL "/version.bin"
-#define VITASHELL_UPDATE_FILE "ux0:VitaShell/internal/VitaShell.vpk"
-#define VITASHELL_VERSION_FILE "ux0:VitaShell/internal/version.bin"
-
 extern unsigned char _binary_resources_updater_eboot_bin_start;
 extern unsigned char _binary_resources_updater_eboot_bin_size;
 extern unsigned char _binary_resources_updater_param_bin_start;
@@ -76,7 +71,7 @@ int network_update_thread(SceSize args, void *argp) {
         }
 
         // Yes
-        return downloadFileProcess(BASE_ADDRESS "/VitaShell.vpk", VITASHELL_UPDATE_FILE, DIALOG_STEP_DOWNLOADED);
+        return downloadFileProcess(BASE_ADDRESS INSTALLER_URL, VITASHELL_UPDATE_FILE, DIALOG_STEP_DOWNLOADED);
       }
     }
   }

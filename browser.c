@@ -45,9 +45,11 @@
 #include "usb.h"
 #include "qr.h"
 #include "pfs.h"
+#include "offline_update.h"
 
 // File lists
 FileList file_list, mark_list, copy_list, install_list;
+int install_list_length = 0;
 
 // Paths
 char cur_file[MAX_PATH_LENGTH];
@@ -411,8 +413,10 @@ static int handleFile(const char *file, FileListEntry *entry) {
       break;
       
     case FILE_TYPE_VPK:
-      initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_YESNO, language_container[INSTALL_QUESTION]);
-      setDialogStep(DIALOG_STEP_INSTALL_QUESTION);
+      if (updateOfflineVerify(file) == 0) {
+        initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_YESNO, language_container[INSTALL_QUESTION]);
+        setDialogStep(DIALOG_STEP_INSTALL_QUESTION);
+      }
       break;
       
     case FILE_TYPE_ARCHIVE:

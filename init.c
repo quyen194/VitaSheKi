@@ -79,6 +79,93 @@ INCLUDE_EXTERN_RESOURCE(electron_play_png);
 INCLUDE_EXTERN_RESOURCE(electron_sfo_icon_png);
 INCLUDE_EXTERN_RESOURCE(electron_text_icon_png);
 INCLUDE_EXTERN_RESOURCE(electron_settings_png);
+// QuyenNC add start
+INCLUDE_EXTERN_RESOURCE(sounds_install_complete_ogg);
+
+INCLUDE_EXTERN_RESOURCE(Akatsuki_colors_txt);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_archive_icon_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_audio_icon_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_battery_bar_charge_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_battery_bar_green_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_battery_bar_red_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_battery_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_bg_audioplayer_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_bg_browser_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_bg_hexeditor_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_bg_photoviewer_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_bg_texteditor_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_context_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_context_more_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_cover_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_dialog_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_fastforward_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_fastrewind_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_file_icon_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_folder_icon_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_ftp_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_image_icon_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_pause_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_play_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_sfo_icon_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_text_icon_png);
+INCLUDE_EXTERN_RESOURCE(Akatsuki_settings_png);
+
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_colors_txt);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_archive_icon_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_audio_icon_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_battery_bar_charge_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_battery_bar_green_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_battery_bar_red_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_battery_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_bg_audioplayer_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_bg_browser_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_bg_hexeditor_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_bg_photoviewer_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_bg_texteditor_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_context_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_context_more_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_cover_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_dialog_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_fastforward_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_fastrewind_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_file_icon_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_folder_icon_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_ftp_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_image_icon_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_pause_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_play_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_sfo_icon_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_text_icon_png);
+INCLUDE_EXTERN_RESOURCE(HatsuneMiku_settings_png);
+
+INCLUDE_EXTERN_RESOURCE(NeonRift_colors_txt);
+INCLUDE_EXTERN_RESOURCE(NeonRift_archive_icon_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_audio_icon_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_battery_bar_charge_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_battery_bar_green_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_battery_bar_red_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_battery_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_bg_audioplayer_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_bg_browser_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_bg_hexeditor_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_bg_photoviewer_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_bg_texteditor_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_context_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_context_more_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_cover_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_dialog_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_fastforward_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_fastrewind_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_file_icon_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_folder_icon_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_ftp_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_image_icon_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_pause_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_play_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_sfo_icon_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_text_icon_png);
+INCLUDE_EXTERN_RESOURCE(NeonRift_settings_png);
+// QuyenNC add end
 
 INCLUDE_EXTERN_RESOURCE(umass_skprx);
 
@@ -94,68 +181,156 @@ extern unsigned char _binary_build_modules_usbdevice_usbdevice_skprx_size;
 #define DEFAULT_FILE(path, name, replace) { path, (void *)&_binary_resources_##name##_start, (int)&_binary_resources_##name##_size, replace }
 
 static DefaultFile default_files[] = {
-  DEFAULT_FILE("ux0:VitaShell/language/english_us.txt", english_us_txt, 0),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/language/english_us.txt", english_us_txt, 0),
 
-  DEFAULT_FILE("ux0:VitaShell/theme/theme.txt", theme_txt, 0),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/theme.txt", theme_txt, 0),
 
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/colors.txt", default_colors_txt, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/archive_icon.png", default_archive_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/audio_icon.png", default_audio_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/battery.png", default_battery_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/battery_bar_charge.png", default_battery_bar_charge_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/battery_bar_green.png", default_battery_bar_green_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/battery_bar_red.png", default_battery_bar_red_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/cover.png", default_cover_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/fastforward.png", default_fastforward_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/fastrewind.png", default_fastrewind_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/file_icon.png", default_file_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/file_symlink_icon.png",default_file_symlink_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/folder_icon.png", default_folder_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/folder_symlink_icon.png",default_folder_symlink_icon_png,  1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/ftp.png", default_ftp_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/image_icon.png", default_image_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/pause.png", default_pause_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/play.png", default_play_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/sfo_icon.png", default_sfo_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Default/text_icon.png", default_text_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/colors.txt", default_colors_txt, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/archive_icon.png", default_archive_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/audio_icon.png", default_audio_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/battery.png", default_battery_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/battery_bar_charge.png", default_battery_bar_charge_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/battery_bar_green.png", default_battery_bar_green_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/battery_bar_red.png", default_battery_bar_red_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/cover.png", default_cover_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/fastforward.png", default_fastforward_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/fastrewind.png", default_fastrewind_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/file_icon.png", default_file_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/file_symlink_icon.png",default_file_symlink_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/folder_icon.png", default_folder_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/folder_symlink_icon.png",default_folder_symlink_icon_png,  1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/ftp.png", default_ftp_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/image_icon.png", default_image_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/pause.png", default_pause_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/play.png", default_play_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/sfo_icon.png", default_sfo_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Default/text_icon.png", default_text_icon_png, 1),
 
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/colors.txt", electron_colors_txt, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/archive_icon.png", electron_archive_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/audio_icon.png", electron_audio_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/battery.png", electron_battery_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/battery_bar_charge.png", electron_battery_bar_charge_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/battery_bar_green.png", electron_battery_bar_green_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/battery_bar_red.png", electron_battery_bar_red_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/bg_audioplayer.png", electron_bg_audioplayer_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/bg_browser.png", electron_bg_browser_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/bg_hexeditor.png", electron_bg_hexeditor_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/bg_photoviewer.png", electron_bg_photoviewer_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/bg_texteditor.png", electron_bg_texteditor_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/context.png", electron_context_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/context_more.png", electron_context_more_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/cover.png", electron_cover_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/dialog.png", electron_dialog_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/fastforward.png", electron_fastforward_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/fastrewind.png", electron_fastrewind_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/file_icon.png", electron_file_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/folder_icon.png", electron_folder_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/ftp.png", electron_ftp_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/image_icon.png", electron_image_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/pause.png", electron_pause_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/play.png", electron_play_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/sfo_icon.png", electron_sfo_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/text_icon.png", electron_text_icon_png, 1),
-  DEFAULT_FILE("ux0:VitaShell/theme/Electron/settings.png", electron_settings_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/colors.txt", electron_colors_txt, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/archive_icon.png", electron_archive_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/audio_icon.png", electron_audio_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/battery.png", electron_battery_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/battery_bar_charge.png", electron_battery_bar_charge_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/battery_bar_green.png", electron_battery_bar_green_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/battery_bar_red.png", electron_battery_bar_red_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/bg_audioplayer.png", electron_bg_audioplayer_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/bg_browser.png", electron_bg_browser_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/bg_hexeditor.png", electron_bg_hexeditor_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/bg_photoviewer.png", electron_bg_photoviewer_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/bg_texteditor.png", electron_bg_texteditor_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/context.png", electron_context_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/context_more.png", electron_context_more_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/cover.png", electron_cover_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/dialog.png", electron_dialog_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/fastforward.png", electron_fastforward_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/fastrewind.png", electron_fastrewind_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/file_icon.png", electron_file_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/folder_icon.png", electron_folder_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/ftp.png", electron_ftp_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/image_icon.png", electron_image_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/pause.png", electron_pause_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/play.png", electron_play_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/sfo_icon.png", electron_sfo_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/text_icon.png", electron_text_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Electron/settings.png", electron_settings_png, 1),
 
-  DEFAULT_FILE("ux0:VitaShell/module/umass.skprx", umass_skprx, 1),
+  // QuyenNC add start
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/colors.txt", Akatsuki_colors_txt, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/archive_icon.png", Akatsuki_archive_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/audio_icon.png", Akatsuki_audio_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/battery.png", Akatsuki_battery_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/battery_bar_charge.png", Akatsuki_battery_bar_charge_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/battery_bar_green.png", Akatsuki_battery_bar_green_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/battery_bar_red.png", Akatsuki_battery_bar_red_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/bg_audioplayer.png", Akatsuki_bg_audioplayer_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/bg_browser.png", Akatsuki_bg_browser_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/bg_hexeditor.png", Akatsuki_bg_hexeditor_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/bg_photoviewer.png", Akatsuki_bg_photoviewer_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/bg_texteditor.png", Akatsuki_bg_texteditor_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/context.png", Akatsuki_context_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/context_more.png", Akatsuki_context_more_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/cover.png", Akatsuki_cover_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/dialog.png", Akatsuki_dialog_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/fastforward.png", Akatsuki_fastforward_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/fastrewind.png", Akatsuki_fastrewind_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/file_icon.png", Akatsuki_file_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/folder_icon.png", Akatsuki_folder_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/ftp.png", Akatsuki_ftp_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/image_icon.png", Akatsuki_image_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/pause.png", Akatsuki_pause_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/play.png", Akatsuki_play_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/sfo_icon.png", Akatsuki_sfo_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/text_icon.png", Akatsuki_text_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/Akatsuki/settings.png", Akatsuki_settings_png, 1),
+
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/colors.txt", HatsuneMiku_colors_txt, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/archive_icon.png", HatsuneMiku_archive_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/audio_icon.png", HatsuneMiku_audio_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/battery.png", HatsuneMiku_battery_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/battery_bar_charge.png", HatsuneMiku_battery_bar_charge_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/battery_bar_green.png", HatsuneMiku_battery_bar_green_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/battery_bar_red.png", HatsuneMiku_battery_bar_red_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/bg_audioplayer.png", HatsuneMiku_bg_audioplayer_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/bg_browser.png", HatsuneMiku_bg_browser_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/bg_hexeditor.png", HatsuneMiku_bg_hexeditor_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/bg_photoviewer.png", HatsuneMiku_bg_photoviewer_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/bg_texteditor.png", HatsuneMiku_bg_texteditor_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/context.png", HatsuneMiku_context_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/context_more.png", HatsuneMiku_context_more_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/cover.png", HatsuneMiku_cover_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/dialog.png", HatsuneMiku_dialog_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/fastforward.png", HatsuneMiku_fastforward_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/fastrewind.png", HatsuneMiku_fastrewind_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/file_icon.png", HatsuneMiku_file_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/folder_icon.png", HatsuneMiku_folder_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/ftp.png", HatsuneMiku_ftp_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/image_icon.png", HatsuneMiku_image_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/pause.png", HatsuneMiku_pause_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/play.png", HatsuneMiku_play_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/sfo_icon.png", HatsuneMiku_sfo_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/text_icon.png", HatsuneMiku_text_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/HatsuneMiku/settings.png", HatsuneMiku_settings_png, 1),
+
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/colors.txt", NeonRift_colors_txt, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/archive_icon.png", NeonRift_archive_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/audio_icon.png", NeonRift_audio_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/battery.png", NeonRift_battery_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/battery_bar_charge.png", NeonRift_battery_bar_charge_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/battery_bar_green.png", NeonRift_battery_bar_green_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/battery_bar_red.png", NeonRift_battery_bar_red_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/bg_audioplayer.png", NeonRift_bg_audioplayer_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/bg_browser.png", NeonRift_bg_browser_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/bg_hexeditor.png", NeonRift_bg_hexeditor_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/bg_photoviewer.png", NeonRift_bg_photoviewer_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/bg_texteditor.png", NeonRift_bg_texteditor_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/context.png", NeonRift_context_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/context_more.png", NeonRift_context_more_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/cover.png", NeonRift_cover_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/dialog.png", NeonRift_dialog_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/fastforward.png", NeonRift_fastforward_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/fastrewind.png", NeonRift_fastrewind_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/file_icon.png", NeonRift_file_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/folder_icon.png", NeonRift_folder_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/ftp.png", NeonRift_ftp_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/image_icon.png", NeonRift_image_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/pause.png", NeonRift_pause_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/play.png", NeonRift_play_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/sfo_icon.png", NeonRift_sfo_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/text_icon.png", NeonRift_text_icon_png, 1),
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/theme/NeonRift/settings.png", NeonRift_settings_png, 1),
+
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/sounds/install_complete.ogg", sounds_install_complete_ogg, 1),
+  // QuyenNC add end
+
+  DEFAULT_FILE("ux0:" VITA_APP_NAME "/module/umass.skprx", umass_skprx, 1),
   
-  { "ux0:VitaShell/module/kernel.skprx",    (void *)&_binary_build_modules_kernel_kernel_skprx_start,
+  { "ux0:" VITA_APP_NAME "/module/kernel.skprx",    (void *)&_binary_build_modules_kernel_kernel_skprx_start,
                                                (int)&_binary_build_modules_kernel_kernel_skprx_size, 1 },
-  { "ux0:VitaShell/module/user.suprx",      (void *)&_binary_build_modules_user_user_suprx_start,
+  { "ux0:" VITA_APP_NAME "/module/user.suprx",      (void *)&_binary_build_modules_user_user_suprx_start,
                                                (int)&_binary_build_modules_user_user_suprx_size, 1 },
-  { "ux0:VitaShell/module/patch.skprx",     (void *)&_binary_build_modules_patch_patch_skprx_start,
+  { "ux0:" VITA_APP_NAME "/module/patch.skprx",     (void *)&_binary_build_modules_patch_patch_skprx_start,
                                                (int)&_binary_build_modules_patch_patch_skprx_size, 1 },
-  { "ux0:VitaShell/module/usbdevice.skprx", (void *)&_binary_build_modules_usbdevice_usbdevice_skprx_start,
+  { "ux0:" VITA_APP_NAME "/module/usbdevice.skprx", (void *)&_binary_build_modules_usbdevice_usbdevice_skprx_start,
                                                (int)&_binary_build_modules_usbdevice_usbdevice_skprx_size, 1 },
 };
 
@@ -313,14 +488,20 @@ static void finishNet() {
 }
 
 void installDefaultFiles() {
-  // Make VitaShell folders
-  sceIoMkdir("ux0:VitaShell", 0777);
-  sceIoMkdir("ux0:VitaShell/internal", 0777);
-  sceIoMkdir("ux0:VitaShell/language", 0777);
-  sceIoMkdir("ux0:VitaShell/module", 0777);
-  sceIoMkdir("ux0:VitaShell/theme", 0777);
-  sceIoMkdir("ux0:VitaShell/theme/Default", 0777);
-  sceIoMkdir("ux0:VitaShell/theme/Electron", 0777);
+  // Make VitaSheKi folders
+  sceIoMkdir("ux0:" VITA_APP_NAME "", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/internal", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/language", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/module", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/theme", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/theme/Default", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/theme/Electron", 0777);
+  // QuyenNC add start
+  sceIoMkdir("ux0:" VITA_APP_NAME "/theme/Akatsuki", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/theme/HatsuneMiku", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/theme/NeonRift", 0777);
+  sceIoMkdir("ux0:" VITA_APP_NAME "/sounds", 0777);
+  // QuyenNC add end
 
   // Write default files if they don't exist
   int i;
@@ -346,7 +527,7 @@ void initVitaShell() {
   memset(vitashell_titleid, 0, sizeof(vitashell_titleid));
   sceAppMgrAppParamGetString(sceKernelGetProcessId(), 12, vitashell_titleid, sizeof(vitashell_titleid));
 
-  // Allow writing to ux0:app/VITASHELL
+  // Allow writing to ux0:app/VITASHEKI
   sceAppMgrUmount("app0:");
   sceAppMgrUmount("savedata0:");
 
@@ -379,27 +560,27 @@ void initVitaShell() {
   initPowerTickThread();
 
   // Delete VitaShell updater if available
-  if (checkAppExist("VSUPDATER")) {
-    deleteApp("VSUPDATER");
+  if (checkAppExist("VSKIUPDER")) {
+    deleteApp("VSKIUPDER");
   }
 
   // Install default files
   installDefaultFiles();
 
   // Load modules
-  patch_modid = taiLoadKernelModule("ux0:VitaShell/module/patch.skprx", 0, NULL);
+  patch_modid = taiLoadKernelModule("ux0:" VITA_APP_NAME "/module/patch.skprx", 0, NULL);
   if (patch_modid >= 0) {
     int res = taiStartKernelModule(patch_modid, 0, NULL, 0, NULL, NULL);
     if (res < 0)
       taiStopUnloadKernelModule(patch_modid, 0, NULL, 0, NULL, NULL);
   }
-  kernel_modid = taiLoadKernelModule("ux0:VitaShell/module/kernel.skprx", 0, NULL);
+  kernel_modid = taiLoadKernelModule("ux0:" VITA_APP_NAME "/module/kernel.skprx", 0, NULL);
   if (kernel_modid >= 0) {
     int res = taiStartKernelModule(kernel_modid, 0, NULL, 0, NULL, NULL);
     if (res < 0)
       taiStopUnloadKernelModule(kernel_modid, 0, NULL, 0, NULL, NULL);
   }
-  user_modid = sceKernelLoadStartModule("ux0:VitaShell/module/user.suprx", 0, NULL, 0, NULL, NULL);
+  user_modid = sceKernelLoadStartModule("ux0:" VITA_APP_NAME "/module/user.suprx", 0, NULL, 0, NULL, NULL);
 
   // clear up recent folder frequently
   SceIoStat stat;

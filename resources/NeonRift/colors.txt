@@ -1,0 +1,60 @@
+# VitaShell colors file for Neon Theme.
+
+# Shell colors
+TITLE_COLOR                  = 0xFFC87FFF
+PATH_COLOR                   = 0xFFFFFF07
+DATE_TIME_COLOR              = 0xFFFFFF07
+
+# File browser colors
+FOCUS_COLOR                  = 0xFFFFFF00
+FILE_COLOR                   = 0xFFFFFFFF
+SFO_COLOR                    = 0xFFFFFFFF
+TXT_COLOR                    = 0xFFFFFFFF
+FOLDER_COLOR                 = 0xFFF0C8C8
+IMAGE_COLOR                  = 0xFFE0CC8B
+ARCHIVE_COLOR                = 0xFFD1A6F7
+SCROLL_BAR_COLOR             = 0x80B78ADE
+SCROLL_BAR_BG_COLOR          = 0x00FFFFFF
+MARKED_COLOR                 = 0x4FCA84E3
+
+# Settings colors
+SETTINGS_MENU_COLOR          = 0x00FFFFFF
+SETTINGS_MENU_FOCUS_COLOR    = 0x22FFFFFF
+SETTINGS_MENU_TITLE_COLOR    = 0xFFE7BCFB
+SETTINGS_MENU_ITEM_COLOR     = 0xFFF0C8C8
+SETTINGS_MENU_OPTION_COLOR   = 0xFFFFFF07
+
+# Text editor colors
+TEXT_COLOR                   = 0xFFFFFFFF
+TEXT_FOCUS_COLOR             = 0xFFFFFF00
+TEXT_LINE_NUMBER_COLOR       = 0xFFF0C8C8
+TEXT_LINE_NUMBER_COLOR_FOCUS = 0xFFFFFF00
+TEXT_HIGHLIGHT_COLOR         = 0x4FCA84E3
+
+# Hex editor colors
+HEX_COLOR                    = 0xFFFFFFFF
+HEX_OFFSET_COLOR             = 0xFFF0C8C8
+HEX_NIBBLE_COLOR             = 0xFFD1A6F7
+
+# Photo viewer colors
+PHOTO_ZOOM_COLOR             = 0xFFFFF9D4
+
+# Audio player colors
+AUDIO_INFO_ASSIGN            = 0xFFFFFF07
+AUDIO_INFO                   = 0xFFFFFFFF
+AUDIO_SPEED                  = 0xFFFFFFFF
+AUDIO_TIME_CURRENT           = 0xFFFFFF07
+AUDIO_TIME_SLASH             = 0xFFFFFFFF
+AUDIO_TIME_TOTAL             = 0xFFFFFFFF
+AUDIO_TIME_BAR               = 0xFFF0C8C8
+AUDIO_TIME_BAR_BG            = 0x40FFFFFF
+
+# Context menu colors
+CONTEXT_MENU_TEXT_COLOR      = 0xFFDECA8A
+CONTEXT_MENU_FOCUS_COLOR     = 0xFFFFFF00
+INVISIBLE_COLOR              = 0x40DECA8A
+
+# Dialog colors
+DIALOG_COLOR                 = 0xFFDECA8A
+PROGRESS_BAR_COLOR           = 0xFFFFFF00
+PROGRESS_BAR_BG_COLOR        = 0x40FFFF00
