@@ -10,10 +10,10 @@ if( NOT DEFINED CMAKE_TOOLCHAIN_FILE )
 endif()
 
 # Project start
-project(VitaShell)
+project(VitaSheKi)
 include("${VITASDK}/share/vita.cmake" REQUIRED)
-set(VITA_APP_NAME "VitaShell")
-set(VITA_TITLEID  "VITASHELL")
+set(VITA_APP_NAME "VitaSheKi")
+set(VITA_TITLEID  "VITASHEKI")
 set(VITA_VERSION  "01.99")
 
 # Flags and includes
@@ -62,6 +62,13 @@ file(GLOB res_files RELATIVE
   resources/default/*.txt
   resources/electron/*.png
   resources/electron/*.txt
+  resources/Akatsuki/*.png
+  resources/Akatsuki/*.txt
+  resources/HatsuneMiku/*.png
+  resources/HatsuneMiku/*.txt
+  resources/NeonRift/*.png
+  resources/NeonRift/*.txt
+  resources/sounds/*.ogg
   resources/*.png
   resources/*.txt
   resources/*.bin
@@ -76,7 +83,7 @@ add_resources(vitashell_res
   build/modules/usbdevice/usbdevice.skprx
 )
 
-add_executable(VitaShell
+add_executable(VitaSheKi
   ${vitashell_res}
   main.c
   pfs.c
@@ -90,6 +97,7 @@ add_executable(VitaShell
   package_installer.c
   refresh.c
   network_update.c
+  offline_update.c
   network_download.c
   context_menu.c
   archive.c
@@ -139,14 +147,14 @@ add_executable(VitaShell
   libmad/timer.c
 )
 
-add_dependencies(VitaShell vitashell_user_stubs)
-add_dependencies(VitaShell kernel.skprx)
-add_dependencies(VitaShell user.suprx)
-add_dependencies(VitaShell patch.skprx)
-add_dependencies(VitaShell usbdevice.skprx)
+add_dependencies(VitaSheKi vitasheki_user_stubs)
+add_dependencies(VitaSheKi kernel.skprx)
+add_dependencies(VitaSheKi user.suprx)
+add_dependencies(VitaSheKi patch.skprx)
+add_dependencies(VitaSheKi usbdevice.skprx)
 
-target_link_libraries(VitaShell
-  ${CMAKE_CURRENT_BINARY_DIR}/modules/user/vitashell_user_stubs/libVitaShellUser_stub_weak.a
+target_link_libraries(VitaSheKi
+  ${CMAKE_CURRENT_BINARY_DIR}/modules/user/vitasheki_user_stubs/libVitaSheKiUser_stub_weak.a
   ftpvita
   vita2d
   vorbisfile
@@ -201,8 +209,8 @@ target_link_libraries(VitaShell
 )
 
 # Create Vita artifacts
-vita_create_self(eboot.bin VitaShell UNSAFE)
-vita_create_vpk(VitaShell.vpk ${VITA_TITLEID} eboot.bin
+vita_create_self(eboot.bin ${VITA_APP_NAME} UNSAFE)
+vita_create_vpk(${VITA_APP_NAME}.vpk ${VITA_TITLEID} eboot.bin
   VERSION ${VITA_VERSION}
   NAME ${VITA_APP_NAME}
   FILE pkg/sce_sys/icon0.png sce_sys/icon0.png
@@ -214,12 +222,12 @@ vita_create_vpk(VitaShell.vpk ${VITA_TITLEID} eboot.bin
 # for network update
 add_custom_target(release
   COMMAND cp eboot.bin ../release/eboot.bin
-  COMMAND cp VitaShell.vpk_param.sfo ../release/param.sfo
-  COMMAND cp VitaShell.vpk ../release/VitaShell.vpk
+  COMMAND cp ${VITA_APP_NAME}.vpk_param.sfo ../release/param.sfo
+  COMMAND cp ${VITA_APP_NAME}.vpk ../release/${VITA_APP_NAME}.vpk
   COMMAND cp ../pkg/sce_sys/livearea/contents/template.xml ../release/template.xml
   DEPENDS eboot.bin
-  DEPENDS VitaShell.vpk
-  DEPENDS VitaShell.vpk_param.sfo
+  DEPENDS ${VITA_APP_NAME}.vpk
+  DEPENDS ${VITA_APP_NAME}.vpk_param.sfo
 )
 
 add_custom_target(send

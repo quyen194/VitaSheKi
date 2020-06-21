@@ -1,4 +1,4 @@
-TITLE_ID = VSUPDATER
+TITLE_ID = VSKIUPDER
 TARGET   = updater
 OBJS     = main.o
 
@@ -9,10 +9,10 @@ CC       = $(PREFIX)-gcc
 CFLAGS   = -Wl,-q -Wall -O3 -marm
 ASFLAGS  = $(CFLAGS)
 
-all: $(TARGET).vpk
+all: $(TARGET).vpk distribute clean
 
 %.vpk: eboot.bin
-	vita-mksfoex -s TITLE_ID=$(TITLE_ID) "VitaShell Updater" param.sfo
+	vita-mksfoex -s TITLE_ID=$(TITLE_ID) "VitaSheKi Updater" param.sfo
 	vita-pack-vpk -s param.sfo -b eboot.bin $@
 
 eboot.bin: $(TARGET).velf
@@ -38,3 +38,7 @@ vpksend: $(TARGET).vpk
 send: eboot.bin
 	curl -T eboot.bin ftp://$(PSVITAIP):1337/ux0:/app/$(TITLE_ID)/
 	@echo "Sent."
+
+distribute:
+	cp eboot.bin ../resources/updater_eboot.bin
+	cp param.sfo ../resources/updater_param.bin

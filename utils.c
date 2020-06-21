@@ -69,8 +69,9 @@ void closeWaitDialog() {
   }
 }
 
-void errorDialog(int error) {
+void ErrorDialog(int error, const char * file, int line) {
   if (error < 0) {
+    // initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_OK, "0x%08X %s %d", error, file, line);
     initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_OK, language_container[ERROR], error);
     setDialogStep(DIALOG_STEP_ERROR);
   }
@@ -288,6 +289,71 @@ int holdButtons(SceCtrlData *pad, uint32_t buttons, uint64_t time) {
   }
 
   return 0;
+}
+
+uint32_t ButtonUserToKernel(uint32_t button) {
+
+  uint32_t kernel_button = 0;
+  switch (button) {
+    case PAD_UP:
+      kernel_button = SCE_CTRL_UP;
+      break;
+    case PAD_DOWN:
+      kernel_button = SCE_CTRL_DOWN;
+      break;
+    case PAD_LEFT:
+      kernel_button = SCE_CTRL_LEFT;
+      break;
+    case PAD_RIGHT:
+      kernel_button = SCE_CTRL_RIGHT;
+      break;
+    case PAD_LTRIGGER:
+      kernel_button = SCE_CTRL_LTRIGGER;
+      break;
+    case PAD_RTRIGGER:
+      kernel_button = SCE_CTRL_RTRIGGER;
+      break;
+    case PAD_TRIANGLE:
+      kernel_button = SCE_CTRL_TRIANGLE;
+      break;
+    case PAD_CIRCLE:
+      kernel_button = SCE_CTRL_CIRCLE;
+      break;
+    case PAD_CROSS:
+      kernel_button = SCE_CTRL_CROSS;
+      break;
+    case PAD_SQUARE:
+      kernel_button = SCE_CTRL_SQUARE;
+      break;
+    case PAD_START:
+      kernel_button = SCE_CTRL_START;
+      break;
+    case PAD_SELECT:
+      kernel_button = SCE_CTRL_SELECT;
+      break;
+    case PAD_LEFT_ANALOG_UP:
+    case PAD_LEFT_ANALOG_DOWN:
+    case PAD_LEFT_ANALOG_LEFT:
+    case PAD_LEFT_ANALOG_RIGHT:
+    case PAD_RIGHT_ANALOG_UP:
+    case PAD_RIGHT_ANALOG_DOWN:
+    case PAD_RIGHT_ANALOG_LEFT:
+    case PAD_RIGHT_ANALOG_RIGHT:
+    default:
+      return 0;
+  }
+
+  return kernel_button;
+}
+
+int IsButtonPressed(uint32_t button) {
+  SceCtrlData test;
+  memset(&test, 0, sizeof(SceCtrlData));
+  sceCtrlPeekBufferPositive(0, &test, 1);
+
+  uint32_t kernel_button = ButtonUserToKernel(button);
+
+  return (test.buttons & kernel_button) ? 1 : 0;
 }
 
 int hasEndSlash(const char *path) {

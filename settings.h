@@ -21,6 +21,11 @@
 
 #define MAX_THEMES 64
 #define MAX_THEME_LENGTH 64
+#define MAX_SHOW_OPTION 5
+
+#define _countof(x) (sizeof(x) / sizeof(x[0]))
+#define INIT_MAX_SHOW_OPTION(x) ((_countof(x) < MAX_SHOW_OPTION) ? _countof(x) : MAX_SHOW_OPTION)
+
 
 enum SettingsAgreement {
   SETTINGS_AGREEMENT_NONE,
@@ -29,6 +34,7 @@ enum SettingsAgreement {
 };
 
 enum SettingsOptionType {
+  SETTINGS_OPTION_TYPE_NONE,
   SETTINGS_OPTION_TYPE_BOOLEAN,
   SETTINGS_OPTION_TYPE_INTEGER,
   SETTINGS_OPTION_TYPE_STRING,
@@ -48,7 +54,7 @@ typedef struct {
   float cur_pos;
   int entry_sel;
   int option_sel;
-  int n_options;
+  int begin_sel;
 } SettingsMenu;
 
 typedef struct {
