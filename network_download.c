@@ -26,7 +26,7 @@
 #include "language.h"
 #include "utils.h"
 
-#define VITASHELL_USER_AGENT "VitaShell/1.00 libhttp/1.1"
+#define VITASHELL_USER_AGENT VITA_APP_NAME "/1.00 libhttp/1.1"
 
 int getDownloadFileSize(const char *src, uint64_t *size) {
   int res;

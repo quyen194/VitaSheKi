@@ -26,9 +26,9 @@ int mountGamecardUx0() {
   sceAppMgrDestroyOtherApp();
 
   // Copy VitaShell
-  copyPath("ux0:app/VITASHELL", "ur0:temp/app", NULL);
-  copyPath("ux0:appmeta/VITASHELL", "ur0:temp/appmeta", NULL);
-  copyPath("ux0:license/app/VITASHELL", "ur0:temp/license", NULL);
+  copyPath("ux0:app/" VITASHELL_TITLEID, "ur0:temp/app", NULL);
+  copyPath("ux0:appmeta/" VITASHELL_TITLEID, "ur0:temp/appmeta", NULL);
+  copyPath("ux0:license/app/" VITASHELL_TITLEID, "ur0:temp/license", NULL);
 
   // Redirect ux0: to gamecard
   shellUserRedirectUx0("sdstor0:gcd-lp-ign-entire", "sdstor0:gcd-lp-ign-entire");
@@ -41,21 +41,21 @@ int mountGamecardUx0() {
   sceIoMkdir("ux0:appmeta", 0006);
   sceIoMkdir("ux0:license", 0006);
   sceIoMkdir("ux0:license/app", 0006);
-  sceIoMkdir("ux0:app/VITASHELL", 0006);
-  sceIoMkdir("ux0:appmeta/VITASHELL", 0006);
-  sceIoMkdir("ux0:license/app/VITASHELL", 0006);
+  sceIoMkdir("ux0:app/" VITASHELL_TITLEID, 0006);
+  sceIoMkdir("ux0:appmeta/" VITASHELL_TITLEID, 0006);
+  sceIoMkdir("ux0:license/app/" VITASHELL_TITLEID, 0006);
 
   // Create important dirs
   sceIoMkdir("ux0:data", 0777);
   sceIoMkdir("ux0:temp", 0006);
 
   // Remove lastdir.txt file
-  sceIoRemove("ux0:VitaShell/internal/lastdir.txt");
+  sceIoRemove("ux0:" VITA_APP_NAME "/internal/lastdir.txt");
 
-  // Copy VitaShell
-  copyPath("ur0:temp/app", "ux0:app/VITASHELL", NULL);
-  copyPath("ur0:temp/appmeta", "ux0:appmeta/VITASHELL", NULL);
-  copyPath("ur0:temp/license", "ux0:license/app/VITASHELL", NULL);
+  // Copy VitaSheKi
+  copyPath("ur0:temp/app", "ux0:app/" VITASHELL_TITLEID, NULL);
+  copyPath("ur0:temp/appmeta", "ux0:appmeta/" VITASHELL_TITLEID, NULL);
+  copyPath("ur0:temp/license", "ux0:license/app/" VITASHELL_TITLEID, NULL);
 
   return 0;
 }
@@ -85,21 +85,21 @@ int mountUsbUx0() {
   sceIoMkdir("uma0:appmeta", 0006);
   sceIoMkdir("uma0:license", 0006);
   sceIoMkdir("uma0:license/app", 0006);
-  sceIoMkdir("uma0:app/VITASHELL", 0006);
-  sceIoMkdir("uma0:appmeta/VITASHELL", 0006);
-  sceIoMkdir("uma0:license/app/VITASHELL", 0006);
+  sceIoMkdir("uma0:app/" VITASHELL_TITLEID, 0006);
+  sceIoMkdir("uma0:appmeta/" VITASHELL_TITLEID, 0006);
+  sceIoMkdir("uma0:license/app/" VITASHELL_TITLEID, 0006);
 
   // Copy VitaShell
-  copyPath("ux0:app/VITASHELL", "uma0:app/VITASHELL", NULL);
-  copyPath("ux0:appmeta/VITASHELL", "uma0:appmeta/VITASHELL", NULL);
-  copyPath("ux0:license/app/VITASHELL", "uma0:license/app/VITASHELL", NULL);
+  copyPath("ux0:app/" VITASHELL_TITLEID, "uma0:app/" VITASHELL_TITLEID, NULL);
+  copyPath("ux0:appmeta/" VITASHELL_TITLEID, "uma0:appmeta/" VITASHELL_TITLEID, NULL);
+  copyPath("ux0:license/app/" VITASHELL_TITLEID, "uma0:license/app/" VITASHELL_TITLEID, NULL);
 
   // Create important dirs
   sceIoMkdir("uma0:data", 0777);
   sceIoMkdir("uma0:temp", 0006);
 
   // Remove lastdir.txt file
-  sceIoRemove("uma0:VitaShell/internal/lastdir.txt");
+  sceIoRemove("uma0:" VITASHELL_TITLEID "/internal/lastdir.txt");
 
   // Redirect ux0: to uma0:
   shellUserRedirectUx0("sdstor0:uma-pp-act-a", "sdstor0:uma-lp-act-entire");

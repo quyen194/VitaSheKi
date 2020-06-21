@@ -22,14 +22,14 @@ add_executable(user
   main.c
 )
 
-add_dependencies(user vitashell_kernel_stubs)
+add_dependencies(user vitasheki_kernel_stubs)
 
 target_link_libraries(user
-  ${CMAKE_CURRENT_BINARY_DIR}/../kernel/vitashell_kernel_stubs/libVitaShellKernel2_stub.a
+  ${CMAKE_CURRENT_BINARY_DIR}/../kernel/vitasheki_kernel_stubs/libVitaSheKiKernel2_stub.a
   SceLibKernel_stub
   SceIofilemgr_stub
 )
 
 vita_create_self(user.suprx user CONFIG exports.yml UNSAFE)
 
-vita_create_stubs(vitashell_user_stubs user exports.yml)
+vita_create_stubs(vitasheki_user_stubs user exports.yml)

@@ -1,0 +1,60 @@
+# VitaShell colors file for Akatsuki theme
+
+# Shell colors
+TITLE_COLOR                  = 0xFF4B42FF
+PATH_COLOR                   = 0xFFFFFFFF
+DATE_TIME_COLOR              = 0xFFFFFFFF
+
+# Settings colors
+SETTINGS_MENU_COLOR          = 0xE0AD683C
+SETTINGS_MENU_FOCUS_COLOR    = 0x6F2C2CDB
+SETTINGS_MENU_TITLE_COLOR    = 0xFFFFFFFF
+SETTINGS_MENU_ITEM_COLOR     = 0xFFDBDBFF
+SETTINGS_MENU_OPTION_COLOR   = 0xFF2E2EE4
+
+# File browser colors
+FOCUS_COLOR                  = 0xFF6E6EFF
+FILE_COLOR                   = 0xFFFFFFFF
+SFO_COLOR                    = 0xFFFFFFFF
+TXT_COLOR                    = 0xFFFFFFFF
+FOLDER_COLOR                 = 0xFFC9C9FF
+IMAGE_COLOR                  = 0xFFC9DCFF
+ARCHIVE_COLOR                = 0xFFD9D9D9
+SCROLL_BAR_COLOR             = 0x80D7D6FF
+SCROLL_BAR_BG_COLOR          = 0x007F7F7F
+MARKED_COLOR                 = 0x4F7893F5
+
+# Context menu colors
+CONTEXT_MENU_TEXT_COLOR      = 0xFFE3E3FF
+CONTEXT_MENU_FOCUS_COLOR     = 0xFF6E6EFF
+INVISIBLE_COLOR              = 0x50FFFFFF
+
+# Dialog colors
+DIALOG_COLOR                 = 0xFFE3E3FF
+PROGRESS_BAR_COLOR           = 0xFF0000E3
+PROGRESS_BAR_BG_COLOR        = 0xFF14148F
+
+# Hex editor colors
+HEX_COLOR                    = 0xFFFFFFFF
+HEX_OFFSET_COLOR             = 0xFFC9C9FF
+HEX_NIBBLE_COLOR             = 0xFF639FFF
+
+# Text editor colors
+TEXT_COLOR                   = 0xFFFFFFFF
+TEXT_FOCUS_COLOR             = 0xFF6E6EFF
+TEXT_LINE_NUMBER_COLOR       = 0xFFC9C9FF
+TEXT_LINE_NUMBER_COLOR_FOCUS = 0xFF6E6EFF
+TEXT_HIGHLIGHT_COLOR         = 0x4F7893F5
+
+# Photo viewer colors
+PHOTO_ZOOM_COLOR             = 0xFFFFF9D4
+
+# Audio player colors
+AUDIO_INFO_ASSIGN            = 0xFFC9C9FF
+AUDIO_INFO                   = 0xFFFFFFFF
+AUDIO_SPEED                  = 0xFFFFFFFF
+AUDIO_TIME_CURRENT           = 0xFFC9C9FF
+AUDIO_TIME_SLASH             = 0xFFFFFFFF
+AUDIO_TIME_TOTAL             = 0xFFFFFFFF
+AUDIO_TIME_BAR               = 0xFF0000E3
+AUDIO_TIME_BAR_BG            = 0xFF14148F
