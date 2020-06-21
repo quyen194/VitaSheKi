@@ -16,6 +16,8 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <psp2/rtc.h>
+
 #include "main.h"
 #include "main_context.h"
 #include "browser.h"
@@ -25,6 +27,7 @@
 #include "makezip.h"
 #include "package_installer.h"
 #include "network_update.h"
+#include "offline_update.h"
 #include "network_download.h"
 #include "context_menu.h"
 #include "archive.h"
@@ -47,6 +50,8 @@
 #include "usb.h"
 #include "qr.h"
 #include "pfs.h"
+#include "audio/player.h"
+#include "uncommon_dialog.h"
 
 int _newlib_heap_size_user = 128 * 1024 * 1024;
 
@@ -67,6 +72,11 @@ VitaShellConfig vitashell_config;
 int SCE_CTRL_ENTER = SCE_CTRL_CROSS, SCE_CTRL_CANCEL = SCE_CTRL_CIRCLE;
 
 int use_custom_config = 1;
+
+// QuyenNC add start
+// play install completed sound interval
+SceRtcTick install_completed_sound_play_time;
+// QuyenNC add end
 
 int getDialogStep() {
   sceKernelLockLwMutex(&dialog_mutex, 1, NULL);
@@ -100,7 +110,7 @@ void drawShellInfo(const char *path) {
   if (version[3] == '0')
     version[3] = '\0';
 
-  pgf_draw_textf(SHELL_MARGIN_X, SHELL_MARGIN_Y, TITLE_COLOR, "VitaShell %s", version);
+  pgf_draw_textf(SHELL_MARGIN_X, SHELL_MARGIN_Y, TITLE_COLOR, "VitaSheKi %s", version);
 
   // Status bar
   float x = SCREEN_WIDTH - SHELL_MARGIN_X;
@@ -237,7 +247,7 @@ void initUsb() {
   if (!path)
     return;
 
-  usbdevice_modid = startUsb("ux0:VitaShell/module/usbdevice.skprx", path, SCE_USBSTOR_VSTOR_TYPE_FAT);
+  usbdevice_modid = startUsb("ux0:" VITA_APP_NAME "/module/usbdevice.skprx", path, SCE_USBSTOR_VSTOR_TYPE_FAT);
   if (usbdevice_modid >= 0) {
     // Lock power timers
     powerLock();
@@ -784,7 +794,15 @@ int dialogSteps() {
     case DIALOG_STEP_INSTALL_QUESTION:
     {
       if (msg_result == MESSAGE_DIALOG_RESULT_YES) {
-        initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, language_container[INSTALLING]);
+        // QuyenNC mod start
+        if (install_list.length > 0) {
+          install_list_length = install_list.length;
+          initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, "%s(%d items left)", language_container[INSTALLING], install_list.length);
+        } else {
+          install_list_length = 1;
+          initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, language_container[INSTALLING]);
+        }
+        // QuyenNC mod end
         setDialogStep(DIALOG_STEP_INSTALL_CONFIRMED);
       } else if (msg_result == MESSAGE_DIALOG_RESULT_NO) {
         setDialogStep(DIALOG_STEP_NONE);
@@ -854,17 +872,50 @@ int dialogSteps() {
       if (msg_result == MESSAGE_DIALOG_RESULT_NONE ||
           msg_result == MESSAGE_DIALOG_RESULT_FINISHED) {
         if (install_list.length > 0) {
-          initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, language_container[INSTALLING]);
+          // QuyenNC mod start
+          install_list_length = install_list.length;
+          initMessageDialog(MESSAGE_DIALOG_PROGRESS_BAR, "%s (%d items left)", language_container[INSTALLING], install_list.length);
+          // QuyenNC mod end
           setDialogStep(DIALOG_STEP_INSTALL_CONFIRMED);
           break;
         }
 
-        refresh = REFRESH_MODE_NORMAL;
-        setDialogStep(DIALOG_STEP_NONE);
+        // QuyenNC add start
+        initMessageDialog(SCE_MSG_DIALOG_BUTTON_TYPE_OK, language_container[INSTALLED]);
+        setDialogStep(DIALOG_STEP_INSTALLED_WAIT);
+        install_completed_sound_play_time.tick = 0;  // reset play sound time
+        // QuyenNC add end
       }
 
       break;
     }
+
+    // QuyenNC add start
+    case DIALOG_STEP_INSTALLED_WAIT:
+    {
+      // play sound every 1 minutes
+      SceRtcTick current_time;
+      if (sceRtcGetCurrentTick(&current_time) == 0) {
+        if (sceRtcCompareTick(&install_completed_sound_play_time, &current_time) < 0) {
+          sceRtcTickAddSeconds(&install_completed_sound_play_time, &current_time, 60);
+
+          setAudioFunctions(FILE_TYPE_OGG);
+          initFunct(0);
+          loadFunct("ux0:" VITA_APP_NAME "/sounds/install_complete.ogg");
+          playFunct();
+        }
+      }
+
+      if (msg_result == MESSAGE_DIALOG_RESULT_NONE) {
+        refresh = REFRESH_MODE_NORMAL;
+        setDialogStep(DIALOG_STEP_NONE);
+        install_completed_sound_play_time.tick = 0;  // reset play sound time
+        break;
+      }
+
+      break;
+    }
+    // QuyenNC add end
     
     case DIALOG_STEP_UPDATE_QUESTION:
     {
@@ -874,8 +925,23 @@ int dialogSteps() {
       } else if (msg_result == MESSAGE_DIALOG_RESULT_NO) {
         setDialogStep(DIALOG_STEP_NONE);
       }
+      break;
     }
     
+    // QuyenNC add start
+    case DIALOG_STEP_UPDATE_OFFLINE_QUESTION:
+    {
+      if (msg_result == MESSAGE_DIALOG_RESULT_YES) {
+        SceUID thid = sceKernelCreateThread("updateOffline", (SceKernelThreadEntry) updateOffline, 0x40, 0x100000, 0, 0, NULL);
+        if (thid >= 0)
+          sceKernelStartThread(thid, 0, NULL);
+      } else if (msg_result == MESSAGE_DIALOG_RESULT_NO) {
+        setDialogStep(DIALOG_STEP_NONE);
+      }
+      break;
+    }
+    // QuyenNC add end
+
     case DIALOG_STEP_DOWNLOADED:
     {
       if (msg_result == MESSAGE_DIALOG_RESULT_FINISHED) {
@@ -925,8 +991,8 @@ int dialogSteps() {
     
     case DIALOG_STEP_EXTRACTED:
     {
-			removePath("ux0:patch/VITASHELL", NULL);
-      launchAppByUriExit("VSUPDATER");
+      removePath("ux0:patch/" VITASHELL_TITLEID, NULL);
+      launchAppByUriExit("VSKIUPDER");
       setDialogStep(DIALOG_STEP_NONE);
       break;
     }

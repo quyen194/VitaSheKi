@@ -1,6 +1,7 @@
-# VitaShell
+VitaSheKi - based on VitaShell of TheOfficialFloW
+================================================================================
 
-VitaShell is an alternative replacement of the PS Vita's LiveArea. It offers you a file manager, package installer, built-in FTP and much more.
+VitaSheKi is an alternative replacement of the PS Vita's LiveArea. It offers you a file manager, package installer, built-in FTP and much more.
 This homebrew was an entry of the Revitalize PS Vita homebrew competition and won the first prize. HENkaku's molecularShell is also based on VitaShell.
 
 ## Changelog
@@ -8,9 +9,9 @@ See [CHANGELOG.md](CHANGELOG.md)
 
 ## How to use an USB flash drive as Memory Card on a PS TV
 - Format your USB flash drive as exFAT or FAT32.
-- Launch VitaShell and press `▲` in the `home` section.
+- Launch VitaSheKi and press `▲` in the `home` section.
 - Select `Mount uma0:` and attach your USB flash drive. You can now copy stuff from/to your USB stick.
-- Once `uma0:` is listed under the partitions, press `▲` again and choose `Mount USB ux0:`. This will copy important apps like VitaShell, molecularShell, and other files.
+- Once `uma0:` is listed under the partitions, press `▲` again and choose `Mount USB ux0:`. This will copy important apps like VitaSheKi, molecularShell, and other files.
 - Your USB flash drive is now acting as a Memory Card.
 - To sync all your apps on your USB flash drive, press `▲` and choose `Refresh livearea`. This will NOT refresh PSP games.
 - If you wish to revert the patch, press `▲` and select `Umount USB ux0:`.
@@ -50,14 +51,14 @@ You can customize those files:
 | text_icon.png          | Text icon                   |
 | wallpaper.png          | Wallpaper                   |
 
-**Theme setting:** VitaShell will load the theme that is set in `ux0:VitaShell/theme/theme.txt` (`THEME_NAME = "YOUR_THEME_NAME"`)
+**Theme setting:** VitaSheKi will load the theme that is set in `ux0:VitaSheKi/theme/theme.txt` (`THEME_NAME = "YOUR_THEME_NAME"`)
 
 **General info:** You don't need to have all these files in your custom theme, if one of them is missing, the default image file will be loaded instead.
 
 **Dialog and context image:** If these files are not available, the colors `DIALOG_BG_COLOR` and `CONTEXT_MENU_COLOR` from `colors.txt` will be used instead.
 
 ## Multi-language
-Put your language file at `ux0:VitaShell/language/x.txt`, where the file must be UTF-8 encoded and `x` is one of the language listed below:
+Put your language file at `ux0:VitaSheKi/language/x.txt`, where the file must be UTF-8 encoded and `x` is one of the language listed below:
 
 - japanese
 - english_us
@@ -79,13 +80,13 @@ Put your language file at `ux0:VitaShell/language/x.txt`, where the file must be
 - portuguese_br
 - turkish
 
-VitaShell does automatically load the language that matches to the current system language.
-If your system language is for example french, it will load from `ux0:VitaShell/language/french.txt`.
+VitaSheKi does automatically load the language that matches to the current system language.
+If your system language is for example french, it will load from `ux0:VitaSheKi/language/french.txt`.
 
 Languages files are available in the `l10n` folder of this repository.
 
 ## Building
-Install [vitasdk](https://github.com/vitasdk) and build VitaShell using:
+Install [vitasdk](https://github.com/vitasdk) and build VitaSheKi using:
 
 ```
 mkdir build && cd build && cmake .. && make
@@ -97,3 +98,15 @@ mkdir build && cd build && cmake .. && make
 * wololo for the Revitalize contest
 * sakya for Lightmp3
 * Everybody who contributed on vitasdk
+
+## Mod
+- Add setting option: Disable System Sleep
+- Add setting option: Install Package Type (replace/upgrade)
+- Show folder first (then files)
+- Add some theme from https://acemad.ga/
+    + Akatsuki
+    + HatsuneMiku
+    + NeonRift
+- Allow Upgrade vitasheki offline (with package name include "vitasheki" substring case insensitive)
+- Batch install (with selected vpk)
+

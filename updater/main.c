@@ -27,6 +27,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define VITASHELL_TITLEID "VITASHEKI"
+
 #define PACKAGE_DIR "ux0:data/pkg"
 #define HEAD_BIN PACKAGE_DIR "/sce_sys/package/head.bin"
 
@@ -160,11 +162,11 @@ int main(int argc, const char *argv[]) {
   sceAppMgrDestroyOtherApp();
 
   char *titleid = get_title_id(PACKAGE_DIR "/sce_sys/param.sfo");
-  if (titleid && strcmp(titleid, "VITASHELL") == 0) {
+  if (titleid && strcmp(titleid, VITASHELL_TITLEID) == 0) {
     promoteApp(PACKAGE_DIR);
   }
 
-  launchAppByUriExit("VITASHELL");
+  launchAppByUriExit(VITASHELL_TITLEID);
 
   return 0;
 }

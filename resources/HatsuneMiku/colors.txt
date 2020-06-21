@@ -1,0 +1,60 @@
+# VitaShell colors file for HatsuneMiku theme.
+
+# Shell colors
+TITLE_COLOR                  = 0xFFFFFFFF
+PATH_COLOR                   = 0xFF6B660D
+DATE_TIME_COLOR              = 0xFFFFFFFF
+
+# File browser colors
+FOCUS_COLOR                  = 0xFFE3B5FF
+FILE_COLOR                   = 0xFFFFFFFF
+SFO_COLOR                    = 0xFFFFFFFF
+TXT_COLOR                    = 0xFFFFFFFF
+FOLDER_COLOR                 = 0xFFE7FF7D
+IMAGE_COLOR                  = 0xFFFFF261
+ARCHIVE_COLOR                = 0xFFBEFF82
+SCROLL_BAR_COLOR             = 0xDDE6E874
+SCROLL_BAR_BG_COLOR          = 0x00FFFFFF
+MARKED_COLOR                 = 0x4FE7E88E
+
+# Text editor colors
+TEXT_COLOR                   = 0xFFFFFFFF
+TEXT_FOCUS_COLOR             = 0xFFE3B5FF
+TEXT_LINE_NUMBER_COLOR       = 0xFFE7FF7D
+TEXT_LINE_NUMBER_COLOR_FOCUS = 0xFFE3B5FF
+TEXT_HIGHLIGHT_COLOR         = 0x4FE7E88E
+
+# Hex editor colors
+HEX_COLOR                    = 0xFFFFFFFF
+HEX_OFFSET_COLOR             = 0xFFE7FF7D
+HEX_NIBBLE_COLOR             = 0xFFBEFF82
+
+# Photo viewer colors
+PHOTO_ZOOM_COLOR             = 0xFFFFF9D4
+
+# Audio player colors
+AUDIO_INFO_ASSIGN            = 0xFFE7FF7D
+AUDIO_INFO                   = 0xFFFFFFFF
+AUDIO_SPEED                  = 0xFFFFFFFF
+AUDIO_TIME_CURRENT           = 0xFFE7FF7D
+AUDIO_TIME_SLASH             = 0xFFFFFFFF
+AUDIO_TIME_TOTAL             = 0xFFFFFFFF
+AUDIO_TIME_BAR               = 0xFFE7FF7D
+AUDIO_TIME_BAR_BG            = 0x40FFFFFF
+
+# Context menu colors
+CONTEXT_MENU_TEXT_COLOR      = 0xFFFFFFFF
+CONTEXT_MENU_FOCUS_COLOR     = 0xFFE7FF7D
+INVISIBLE_COLOR              = 0x50FFFFFF
+
+# Dialog colors
+DIALOG_COLOR                 = 0xFFFFFFFF
+PROGRESS_BAR_COLOR           = 0xFFEDE73B
+PROGRESS_BAR_BG_COLOR        = 0x50FFE554
+
+# Settings colors
+SETTINGS_MENU_COLOR          = 0x00FFFFFF
+SETTINGS_MENU_FOCUS_COLOR    = 0x4FE7E88E
+SETTINGS_MENU_TITLE_COLOR    = 0xFFFFFFFF
+SETTINGS_MENU_ITEM_COLOR     = 0xFFE7FF7D
+SETTINGS_MENU_OPTION_COLOR   = 0xFFBEFF82

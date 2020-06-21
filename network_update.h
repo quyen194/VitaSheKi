@@ -19,6 +19,12 @@
 #ifndef __NETWORK_UPDATE_H__
 #define __NETWORK_UPDATE_H__
 
+#define BASE_ADDRESS "https://raw.githubusercontent.com/quyen194/VitaSheKi/master-quyen194/release"
+#define VERSION_URL "/version.bin"
+#define INSTALLER_URL "/VitaSheKi.vpk"
+#define VITASHELL_UPDATE_FILE "ux0:VitaSheKi/internal/VitaSheKi.vpk"
+#define VITASHELL_VERSION_FILE "ux0:VitaSheKi/internal/version.bin"
+
 int network_update_thread(SceSize args, void *argp);
 int update_extract_thread(SceSize args, void *argp);
 

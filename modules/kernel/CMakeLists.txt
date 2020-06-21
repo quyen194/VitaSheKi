@@ -32,4 +32,4 @@ target_link_libraries(kernel
 
 vita_create_self(kernel.skprx kernel CONFIG exports.yml UNSAFE)
 
-vita_create_stubs(vitashell_kernel_stubs kernel exports.yml KERNEL)
+vita_create_stubs(vitasheki_kernel_stubs kernel exports.yml KERNEL)
