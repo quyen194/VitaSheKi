@@ -36,6 +36,10 @@ typedef struct {
   int select_button;
   int disable_autoupdate;
   int disable_warning;
+  int package_install_type;
+  int disable_system_sleep;
+  int disable_system_sleep_compare;
+  int system_standby_timesec;  // prev config
 } VitaShellConfig;
 
 #endif
